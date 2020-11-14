@@ -18,6 +18,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { ClientsService } from './services/clients.service';
 
 
 
@@ -42,9 +43,9 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
-  providers: [],
+  providers: [ClientsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

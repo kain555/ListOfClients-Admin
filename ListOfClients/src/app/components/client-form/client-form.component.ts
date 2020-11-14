@@ -1,7 +1,8 @@
-import value from '*.json';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ClientsService } from 'src/app/services/clients.service';
 import { Client } from '../clients-list/clients-list.component';
 
 
@@ -17,9 +18,7 @@ export class ClientFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public client: Client){}
 
   editClient: FormGroup;
-
   selectedIndustry: string;
-  selectedSub: string;
   filtredSub: any;
 
   industryList = [
@@ -42,7 +41,7 @@ export class ClientFormComponent implements OnInit {
     this.editClient = new FormGroup({
       'name': new FormControl(this.client.name),
       'surname': new FormControl(this.client.surname),
-      'dateOfBirth': new FormControl(this.client.dataOfBirth),
+      'dateOfBirth': new FormControl(this.client.dateOfBirth),
       'industry': new FormControl(this.client.industry),
       'subcategory': new FormControl(this.client.subcategory),
       'telephone': new FormControl(this.client.telephone),
@@ -67,7 +66,7 @@ export class ClientFormComponent implements OnInit {
 
   }
   onSubmit() {
-    console.log(this.editClient.value);
+
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import clientsData from '../data/clients.json';
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +7,8 @@ import { Injectable } from '@angular/core';
 export class ClientsService {
 
   constructor() { }
+
+  getClients() {
+    return clientsData;
+  }
 }

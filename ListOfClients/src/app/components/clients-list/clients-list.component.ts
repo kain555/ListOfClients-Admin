@@ -4,15 +4,15 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ClientsService } from 'src/app/services/clients.service';
 
-import clientsData from '../../data/clients.json';
 import { ClientFormComponent } from '../client-form/client-form.component';
 
 export interface Client {
   id: number;
   name: string;
   surname: string;
-  dataOfBirth: string;
+  dateOfBirth: string;
   industry:string;
   subcategory: string;
   telephone: number;
@@ -36,8 +36,10 @@ export class ClientsListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) { 
-    this.dataSource = new MatTableDataSource(clientsData);
+  clientsData: any;
+  constructor(public dialog: MatDialog, private clientsService: ClientsService) { 
+    this.clientsData = this.clientsService.getClients();
+    this.dataSource = new MatTableDataSource(this.clientsData);
   }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class ClientsListComponent implements OnInit {
   }
 
   addNewClient(id:number){
-    this.takeClient = clientsData.filter(function(r) { return r["id"] == id })[0]||null;
+    this.takeClient = this.clientsData.filter(function(r) { return r["id"] == id })[0]||null;
     this.showForm();
   }
 
