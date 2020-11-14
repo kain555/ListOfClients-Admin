@@ -31,6 +31,7 @@ export class ClientsListComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'surname', 'dataOfBirth', 'industry', 'subcategory', 'telephone', 'email', 'edit'];
   dataSource: MatTableDataSource<Client>;
+  takeClient: Client;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -48,13 +49,19 @@ export class ClientsListComponent implements OnInit {
   }
 
   addNewClient(id:number){
+    this.takeClient = clientsData.filter(function(r) { return r["id"] == id })[0]||null;
+    this.showForm();
+  }
+
+  showForm() {
     const dialogRef = this.dialog.open(ClientFormComponent, {
-      width: '50%',
-      height: '80%'
+      width: '250px',
+      height: '660px',
+      data: {client: this.takeClient}.client
     }); 
     setTimeout(() => {
       dialogRef.close();
-    }, 15000);
+    }, 50000);
   }
 
   applyFilter(event: Event) {
