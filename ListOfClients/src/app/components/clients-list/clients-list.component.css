@@ -1,0 +1,21 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+  }
+
+  input {
+    max-width: 200px;
+  }
+
+  .search{
+    max-width: 100%;
+    padding-left: 20px;
+  }
+
+  .addBtn {
+    float:right;
+  }

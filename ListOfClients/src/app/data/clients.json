@@ -1,0 +1,202 @@
+[
+    {
+      "id": 1,
+      "name": "Marcin",
+      "surname": "Dziwisz",
+      "dataOfBirth": "13.05.1997",
+      "industry": "Finanse",
+      "subcategory": "Bank",
+      "telephone": 605214251,
+      "email": "mdziwisz@gmail.com"
+    },
+    {
+      "id": 2,
+        "name": "Aleksandra",
+        "surname": "Mądra",
+        "dataOfBirth": "13.02.1994",
+        "industry": "Finanse",
+        "subcategory": "Bank",
+        "telephone": 502145875,
+        "email": "AleksandraM@gmail.com"
+      },
+      {
+        "id": 3,
+        "name": "Maciej",
+        "surname": "Kat",
+        "dataOfBirth": "14.05.1985",
+        "industry": "Finanse",
+        "subcategory": "Ubezpieczalnia",
+        "telephone": 852145745,
+        "email": "Maciejk@gmail.com"
+      },
+      {
+        "id": 4,
+        "name": "Ewa",
+        "surname": "Wywa",
+        "dataOfBirth": "13.02.1925",
+        "industry": "Finanse",
+        "subcategory": "Ubezpieczenia",
+        "telephone": 856325421,
+        "email": "EwaW@gmail.com"
+      },
+      {
+        "id": 5,
+        "name": "Olaf",
+        "surname": "Makowy",
+        "dataOfBirth": "13.05.1985",
+        "industry": "Media",
+        "subcategory": "TV",
+        "telephone": 654785325,
+        "email": "OlafZM@gmail.com"
+      },
+      {
+        "id": 6,
+        "name": "Natalia",
+        "surname": "Mala",
+        "dataOfBirth": "13.05.1974",
+        "industry": "Media",
+        "subcategory": "TV",
+        "telephone": 745215365,
+        "email": "NataliaM@gmail.com"
+      },
+      {
+        "id": 7,
+        "name": "Zofia",
+        "surname": "Zuna",
+        "dataOfBirth": "13.12.1974",
+        "industry": "Media",
+        "subcategory": "Radio",
+        "telephone": 852326584,
+        "email": "ZofiaZ@gmail.com"
+      },
+      {
+        "id": 8,
+        "name": "Krystana",
+        "surname": "Łupa",
+        "dataOfBirth": "13.11.1956",
+        "industry": "Podróże",
+        "subcategory": "Krajowe",
+        "telephone": 654785521,
+        "email": "KrystanaŁ@gmail.com"
+      },
+      {
+        "id": 9,
+        "name": "Mariusz",
+        "surname": "Kowalski",
+        "dataOfBirth": "25.05.1965",
+        "industry": "Podróże",
+        "subcategory": "Krajowe",
+        "telephone": 745214568,
+        "email": "MariuszK@gmail.com"
+      },
+      {
+        "id": 10,
+        "name": "Piotr",
+        "surname": "Dzielny",
+        "dataOfBirth": "25.14.1998",
+        "industry": "Finanse",
+        "subcategory": "Bank",
+        "telephone": 256325874,
+        "email": "PiotrD@gmail.com"
+      },
+      {
+        "id": 11,
+        "name": "Krystian",
+        "surname": "Łakomy",
+        "dataOfBirth": "30.05.1997",
+        "industry": "Podróże",
+        "subcategory": "Zagraniczne",
+        "telephone": 852654753,
+        "email": "KrystianŁ@gmail.com"
+      },
+      {
+        "id": 12,
+        "name": "Tadeusz",
+        "surname": "Rydzyk",
+        "dataOfBirth": "13.05.1953",
+        "industry": "Media",
+        "subcategory": "Radio",
+        "telephone": 752225545,
+        "email": "TadeuszRydzyk@gmail.com"
+      },
+      {
+        "id": 13,
+        "name": "Grażyna",
+        "surname": "Miłosna",
+        "dataOfBirth": "08.05.1987",
+        "industry": "Finanse",
+        "subcategory": "Ubezpieczalnia",
+        "telephone": 654254254,
+        "email": "GrażynaM@gmail.com"
+      },
+      {
+        "id": 14,
+        "name": "Marzena",
+        "surname": "Koła",
+        "dataOfBirth": "07.05.1997",
+        "industry": "Podróże",
+        "subcategory": "Krajowe",
+        "telephone": 658558565,
+        "email": "MarzenaK@gmail.com"
+      },
+      {
+        "id": 15,
+        "name": "Marcin",
+        "surname": "Macha",
+        "dataOfBirth": "25.02.1985",
+        "industry": "Finanse",
+        "subcategory": "Ubezpieczalnia",
+        "telephone": 754445445,
+        "email": "MarcinM@gmail.com"
+      },
+      {
+        "id": 16,
+        "name": "Katarzyna",
+        "surname": "Niedziwna",
+        "dataOfBirth": "18.07.1990",
+        "industry": "Media",
+        "subcategory": "TV",
+        "telephone": 758558558,
+        "email": "KatarzynaN@gmail.com"
+      },
+      {
+        "id": 17,
+        "name": "Olek",
+        "surname": "Cudowny",
+        "dataOfBirth": "14.05.1965",
+        "industry": "Podróże",
+        "subcategory": "Zagraniczne",
+        "telephone": 605252251,
+        "email": "OlekC@gmail.com"
+      },
+      {
+        "id": 18,
+        "name": "Adolf",
+        "surname": "Dobry",
+        "dataOfBirth": "13.08.1991",
+        "industry": "Podróże",
+        "subcategory": "Krajowe",
+        "telephone": 856554554,
+        "email": "AdolfD@gmail.com"
+      },
+      {
+        "id": 19,
+        "name": "Angelika",
+        "surname": "Seban",
+        "dataOfBirth": "03.05.1978",
+        "industry": "Finanse",
+        "subcategory": "Bank",
+        "telephone": 525565585,
+        "email": "AngelikaS@gmail.com"
+      },
+      {
+        "id": 20,
+        "name": "Michał",
+        "surname": "Żartobliwy",
+        "dataOfBirth": "13.05.1975",
+        "industry": "Media",
+        "subcategory": "Radio",
+        "telephone": 654254154,
+        "email": "MichałZ@gmail.com"
+      }
+  ]

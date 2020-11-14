@@ -1,1 +1,62 @@
-<p>clients-list works!</p>
+<div class="search">
+<mat-form-field>
+  <mat-label>Wyszukaj</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Wpisz co chcesz wyszukać" #input/>
+</mat-form-field>
+<button mat-raised-button color="accent" class="addBtn" (click)="addNewClient(0)">Dodaj nowego klienta</button>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Imię </th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="surname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="surname"> Nazwisko </th>
+      <td mat-cell *matCellDef="let row"> {{row.surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataOfBirth">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="dateOfBirth"> Data urodzenia </th>
+      <td mat-cell *matCellDef="let row"> {{row.dataOfBirth}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="industry">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="industry"> Branża </th>
+      <td mat-cell *matCellDef="let row"> {{row.industry}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subcategory">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="subcategory"> Podkategoria </th>
+      <td mat-cell *matCellDef="let row"> {{row.subcategory}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="telephone"> Telefon </th>
+      <td mat-cell *matCellDef="let row"> {{row.telephone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="email"> Email </th>
+      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edytuj </th>
+      <td mat-cell *matCellDef="let row"> <button mat-raised-button color="primary" (click)="addNewClient(row.id)">Edytuj klienta</button> </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>
