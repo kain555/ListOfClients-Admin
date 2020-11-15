@@ -1,9 +1,9 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { Client } from 'src/app/models/client';
 import { ClientsService } from 'src/app/services/clients.service';
-import { Client } from '../clients-list/clients-list.component';
 
 
 @Component({
@@ -15,29 +15,25 @@ export class ClientFormComponent implements OnInit {
   
   constructor(
     public dialogRef: MatDialogRef<ClientFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public client: Client){}
+    @Inject(MAT_DIALOG_DATA) public client: Client, private cService: ClientsService,
+    public dialog: MatDialog){}
 
   editClient: FormGroup;
+  clientsArray: Array<Client>;
   selectedIndustry: string;
   filtredSub: any;
 
-  industryList = [
-    { name: "Finanse", value: 1 },
-    { name: "Media", value: 2 },
-    { name: "Podróże", value: 3 }
-  ];
-
-  subcategory = [
-    { name: "Bank", category: 1 },
-    { name: "Ubezpieczalnia", category: 1 },
-    { name: "TV", category: 2 },
-    { name: "Radio", category: 2 },
-    { name: "Krajowe", category: 3 },
-    { name: "Zagraniczne", category: 3 }
-  ];
+  industryList = Array<any>();
+  subcategory = Array<any>();
 
   ngOnInit(): void {
+    this.industryList = this.cService.industryList;
+    this.subcategory = this.cService.subcategory;
     this.filtredSub = this.subcategory;
+
+    this.cService.getClients().subscribe(data => {
+    this.clientsArray = data;
+    });
     this.editClient = new FormGroup({
       'name': new FormControl(this.client.name),
       'surname': new FormControl(this.client.surname),
@@ -46,7 +42,7 @@ export class ClientFormComponent implements OnInit {
       'subcategory': new FormControl(this.client.subcategory),
       'telephone': new FormControl(this.client.telephone),
       'email': new FormControl(this.client.email)
-    })
+    });
 
     this.editClient.controls['industry'].valueChanges.subscribe(change => {
       this.selectedIndustry = change;
@@ -63,10 +59,18 @@ export class ClientFormComponent implements OnInit {
         this.filtredSub = this.subcategory.filter(x => x.category === 3);
       }
     });
-
-  }
-  onSubmit() {
-
   }
 
+  onSubmit(client: Client) {
+    let index = this.clientsArray.indexOf(client);
+    client.name = this.editClient.value.name;
+    client.surname = this.editClient.value.surname;
+    client.dateOfBirth = this.editClient.value.dateOfBirth;
+    client.industry = this.editClient.value.industry;
+    client.subcategory = this.editClient.value.subcategory;
+    client.telephone = this.editClient.value.telephone;
+    client.email = this.editClient.value.email;
+    this.clientsArray[index] = client;
+    this.dialog.closeAll();
+  }
 }

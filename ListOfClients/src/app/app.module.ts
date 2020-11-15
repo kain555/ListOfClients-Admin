@@ -18,7 +18,9 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+
 import { ClientsService } from './services/clients.service';
+import { AddNewClientComponent } from './components/add-new-client/add-new-client.component';
 
 
 
@@ -27,7 +29,8 @@ import { ClientsService } from './services/clients.service';
     AppComponent,
     ClientFormComponent,
     ClientsListComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddNewClientComponent
   ],
   exports: [MatFormFieldModule, MatInputModule],
   imports: [

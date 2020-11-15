@@ -1,23 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Client } from 'src/app/models/client';
 import { ClientsService } from 'src/app/services/clients.service';
+import { AddNewClientComponent } from '../add-new-client/add-new-client.component';
 
 import { ClientFormComponent } from '../client-form/client-form.component';
-
-export interface Client {
-  id: number;
-  name: string;
-  surname: string;
-  dateOfBirth: string;
-  industry:string;
-  subcategory: string;
-  telephone: number;
-  email: string;
-}
 
 @Component({
   selector: 'app-clients-list',
@@ -38,7 +29,9 @@ export class ClientsListComponent implements OnInit {
 
   clientsData: any;
   constructor(public dialog: MatDialog, private clientsService: ClientsService) { 
-    this.clientsData = this.clientsService.getClients();
+      this.clientsService.getClients().subscribe(x => {
+      this.clientsData = x;
+    });
     this.dataSource = new MatTableDataSource(this.clientsData);
   }
 
@@ -51,14 +44,18 @@ export class ClientsListComponent implements OnInit {
   }
 
   addNewClient(id:number){
+    if (id != 0){
     this.takeClient = this.clientsData.filter(function(r) { return r["id"] == id })[0]||null;
-    this.showForm();
+    this.editForm();
+    }
+    else
+    this.newClientForm();
   }
 
-  showForm() {
+  editForm() {
     const dialogRef = this.dialog.open(ClientFormComponent, {
       width: '250px',
-      height: '660px',
+      height: '650px',
       data: {client: this.takeClient}.client
     }); 
     setTimeout(() => {
@@ -66,6 +63,27 @@ export class ClientsListComponent implements OnInit {
     }, 50000);
   }
 
+  newClientForm() {
+    const dialogRef = this.dialog.open(AddNewClientComponent, {
+      width: '250px',
+      height: '650px'
+    }); 
+    setTimeout(() => {
+      dialogRef.close();
+    }, 50000);
+
+    dialogRef.afterClosed().subscribe(data => 
+      {
+        if(data === undefined){
+          console.log(this.clientsData);
+        }
+        else
+        this.clientsData = data;
+        this.dataSource = new MatTableDataSource(this.clientsData);
+      }
+    );   
+  }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
