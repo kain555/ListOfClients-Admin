@@ -12,7 +12,7 @@
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
-                <mat-label>Data Urodzenia</mat-label>
+                <mat-label>Data Urodzenia (rrrr-mm-dd)</mat-label>
                 <input matInput formControlName="dateOfBirth">
             </mat-form-field>
             <br>
@@ -35,13 +35,13 @@
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
-                <mat-label>Numer telefonu</mat-label>
+                <mat-label>Numer telefonu (bez spacji)</mat-label>
                 <input matInput formControlName="telephone">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Adres e-mail</mat-label>
-                <input matInput formControlName="email">
+                <input matInput formControlName="email" required email>
             </mat-form-field>
         <mat-card-actions>
             <button mat-raised-button type="submit" color="primary">Wykonaj</button>
